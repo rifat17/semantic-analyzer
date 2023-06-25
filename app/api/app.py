@@ -20,7 +20,7 @@ model = load_your_model()
 app = Flask(__name__)
 
 
-@app.route("/predict", methods=["POST"])
+@app.route("/analyze", methods=["POST"])
 def predict_sentiment():
     data = request.json
     try:
