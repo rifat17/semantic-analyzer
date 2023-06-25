@@ -1,0 +1,5 @@
+setfit
+nltk
+Flask
+pytest
+black

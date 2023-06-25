@@ -1,0 +1,85 @@
+swagger: "2.0"
+info:
+    description: This is a Python Test / Backend Developer Api
+    version: 1.0.0
+    title: Python Test / Backend Developer
+consumes:
+    - application/json
+produces:
+    - application/json
+host: localhost:5000
+basePath: /
+tags:
+    - name: analyzer
+      description: Python Test / Backend Developer
+    - name: health
+      description: check health of the server
+schemes:
+    - http
+paths:
+    /analyze:
+        post:
+            tags:
+                - analyzer
+            summary: Analyze an input
+            description: check SentimentAnalyzer of an input
+            operationId: analyze
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - in: body
+                  name: body
+                  description: A text input
+                  required: true
+                  schema:
+                      $ref: "#/definitions/SentimentAnalyzerInput"
+            responses:
+                "200":
+                    description: Success
+                    schema:
+                        $ref: "#/definitions/SentimentAnalyzerResponse"
+                "400":
+                    description: Bad request
+
+    /health:
+        get:
+            tags:
+                - health
+            summary:
+            description:
+            operationId: health
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            responses:
+                "200":
+                    description: Success
+                "400":
+                    description: Bad request
+
+definitions:
+    SentimentAnalyzerInput:
+        title:
+        description:
+        required:
+            - text
+        properties:
+            text:
+                type: string
+                description:
+                example:
+
+    SentimentAnalyzerResponse:
+        type: object
+        description:
+        properties:
+            sentiment:
+                type: string
+                description: List of cats
+                enum:
+                    - positive
+                    - negative
+                    - neutral

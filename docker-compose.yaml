@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  analyzer:
+    container_name: analyzer
+    image: rifat17/analyzer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    # volumes:
+    #   - .:/app
